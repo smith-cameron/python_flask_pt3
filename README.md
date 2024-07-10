@@ -97,7 +97,7 @@ print(f"Post Route: {request.form}")
 print(f"Post Route: {request.form['first_name']}")
 ```
 access data that was input via the `request.form` immutable multi-dict
-- `dictionary[‘name_of_the_input’]` == `request.form[‘name_of_the_input’]`
+- `dictionary[‘name_of_the_key’]` == `request.form[‘name_of_the_input’]`
 ---
 ## Redirecting
 WHY? besides taking the user where we want them to go...
