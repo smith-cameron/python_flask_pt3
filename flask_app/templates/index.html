@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Index HTML</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1 class="subHead">Houston We Have Liftoff!!!!</h1>
+      <div id="bodyDiv">
+        {# action - url the form will be submitted to #} 
+        {# method is the request method in which it will be sent #} 
+        {# we'll want this to be a POST request #}
+        <form action="/users/create" method="post" class="inputForm">
+          <div class="formGroup">
+            <label for="name">Name:</label>
+            <input type="text" name="name" />
+            {# type options are important for: #} 
+            {# use input types to facilitate user interaction #} 
+            {# and assist in sanatizing data #}
+          </div>
+          <div class="formGroup">
+            <label for="email">Email:</label>
+            <input type="email" name="email" />
+            {# name attributes are how we will identify one field from another #} 
+            {# Each element should have a UNIQUE name attribute #}
+          </div>
+          <div class="formGroup">
+            <label for="age">Age:</label>
+            <input type="number" name="age" />
+          </div>
+          <div class="formGroup">
+            <label for="birthday">Birthday:</label>
+            <input type="date" name="user_birthday" />
+          </div>
+          <div class="formGroup">
+            <label for="password">Password:</label>
+            <input type="password" name="user_password" />
+          </div>
+          {# a way to submit the form #}
+          <!-- <input type='submit' value='create user'> -->
+          <button>Submit</button>
+        </form>
+      </div>
+      <div id="displayWrapper">
+        {# Display stored session data #}
+        <h3>{{session['some_key']}}</h3>
+        <p>Email: {{session['email']}}</p>
+        <p>Name: {{session['name']}}</p>
+        <p>Birthday: {{session['birthday']}}</p>
+        <p>Age: {{session['age']}}</p>
+        <p>PW: {{session['password']}}</p>
+        {# Link to controller route that clears session data #}
+        <a href="/clear_session" class="navLink">Clear Session(Logout)</a>
+      </div>
+    </div>
+  </body>
+</html>
